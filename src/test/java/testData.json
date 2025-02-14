@@ -1,0 +1,134 @@
+[
+  {
+    "requestBody": "{}",
+    "statusCode": 200,
+    "expectedMessage": "Сохранили объявление - .*"
+  },
+  {
+    "requestBody": "{\"price\":5000, \"sellerId\":999994}",
+    "statusCode": 200,
+    "expectedMessage": "Сохранили объявление - .*"
+  },
+  {
+    "requestBody": "{\"name\":\"Лопата\", \"sellerId\":999994}",
+    "statusCode": 200,
+    "expectedMessage": "Сохранили объявление - .*"
+  },
+  {
+    "requestBody": "{\"name\":\"Лопата\", \"price\":5000}",
+    "statusCode": 200,
+    "expectedMessage": "Сохранили объявление - .*"
+  },
+  {
+    "requestBody": "{\"name\":\"Лопата\", \"price\":0, \"sellerId\":999994}",
+    "statusCode": 200,
+    "expectedMessage": "Сохранили объявление - .*"
+  },
+  {
+    "requestBody": "{\"name\":\"Лопата\", \"price\":-1, \"sellerId\":999994}",
+    "statusCode": 200,
+    "expectedMessage": "Сохранили объявление - .*"
+  },
+  {
+    "requestBody": "{\"name\":\"Лопата\", \"price\":1, \"sellerId\":999994}",
+    "statusCode": 200,
+    "expectedMessage": "Сохранили объявление - .*"
+  },
+  {
+    "requestBody": "{\"name\":12345, \"price\":1, \"sellerId\":999994}",
+    "statusCode": 400,
+    "expectedMessage": "не передано тело объявлени"
+  },
+
+  {
+    "requestBody": "{\"name\":\"Лопата\", \"price\":\"пять тысяч\", \"sellerId\":999994}",
+    "statusCode": 400,
+    "expectedMessage": "не передано тело объявлени"
+  },
+  {
+    "requestBody": "{\"name\":\"Лопата\", \"price\":5000, \"sellerId\":\"десять\"}",
+    "statusCode": 400,
+    "expectedMessage": "не передано тело объявлени"
+  },
+  {
+    "requestBody": "{\"name\":\"Лопата\", \"price\":5000, \"sellerId\":999994, \"statistics\":{\"contacts\":0, \"likes\":5, \"viewCount\": 5}}",
+    "statusCode": 200,
+    "expectedMessage": "Сохранили объявление - .*"
+  },
+  {
+    "requestBody": "{\"name\":\"Лопата\", \"price\":5000, \"sellerId\":999994, \"statistics\":{\"contacts\":1, \"likes\":5, \"viewCount\": 5}}",
+    "statusCode": 200,
+    "expectedMessage": "Сохранили объявление - .*"
+  },
+  {
+    "requestBody": "{\"name\":\"Лопата\", \"price\":5000, \"sellerId\":999994, \"statistics\":{\"contacts\":-1, \"likes\":5, \"viewCount\": 5}}",
+    "statusCode": 200,
+    "expectedMessage": "Сохранили объявление - .*"
+  },
+  {
+    "requestBody": "{\"name\":\"Лопата\", \"price\":5000, \"sellerId\":999994, \"statistics\":{\"contacts\":1.5, \"likes\":5, \"viewCount\": 5}}",
+    "statusCode": 400,
+    "expectedMessage": "не передано тело объявлени"
+  },
+  {
+    "requestBody": "{\"name\":\"Лопата\", \"price\":5000, \"sellerId\":999994, \"statistics\":{\"contacts\":\"пять\", \"likes\":5, \"viewCount\": 5}}",
+    "statusCode": 400,
+    "expectedMessage": "не передано тело объявлени"
+  },
+  {
+    "requestBody": "{\"name\":\"Лопата\", \"price\":5000, \"sellerId\":999994, \"statistics\":{\"contacts\":5, \"likes\":0, \"viewCount\": 5}}",
+    "statusCode": 200,
+    "expectedMessage": "Сохранили объявление - .*"
+  },
+  {
+    "requestBody": "{\"name\":\"Лопата\", \"price\":5000, \"sellerId\":999994, \"statistics\":{\"contacts\":5, \"likes\":-1, \"viewCount\": 5}}",
+    "statusCode": 200,
+    "expectedMessage": "Сохранили объявление - .*"
+  },
+  {
+    "requestBody": "{\"name\":\"Лопата\", \"price\":5000, \"sellerId\":999994, \"statistics\":{\"contacts\":5, \"likes\":1, \"viewCount\": 5}}",
+    "statusCode": 200,
+    "expectedMessage": "Сохранили объявление - .*"
+  },
+  {
+    "requestBody": "{\"name\":\"Лопата\", \"price\":5000, \"sellerId\":999994, \"statistics\":{\"contacts\":5, \"likes\":1.5, \"viewCount\": 5}}",
+    "statusCode": 400,
+    "expectedMessage": "не передано тело объявлени"
+  },
+  {
+    "requestBody": "{\"name\":\"Лопата\", \"price\":5000, \"sellerId\":999994, \"statistics\":{\"contacts\":5, \"likes\":\"пять\", \"viewCount\": 5}}",
+    "statusCode": 400,
+    "expectedMessage": "не передано тело объявлени"
+  },
+  {
+    "requestBody": "{\"name\":\"Лопата\", \"price\":5000, \"sellerId\":999994, \"statistics\":{\"contacts\":5, \"likes\":5, \"viewCount\": 0}}",
+    "statusCode": 200,
+    "expectedMessage":"Сохранили объявление - .*"
+  },
+  {
+    "requestBody": "{\"name\":\"Лопата\", \"price\":5000, \"sellerId\":999994, \"statistics\":{\"contacts\":5, \"likes\":5, \"viewCount\": 1}}",
+    "statusCode": 200,
+    "expectedMessage": "Сохранили объявление - .*"
+  },
+  {
+    "requestBody": "{\"name\":\"Лопата\", \"price\":5000, \"sellerId\":999994, \"statistics\":{\"contacts\":5, \"likes\":5, \"viewCount\": -1}}",
+    "statusCode": 200,
+    "expectedMessage": "Сохранили объявление - .*"
+  },
+  {
+    "requestBody": "{\"name\":\"Лопата\", \"price\":5000, \"sellerId\":999994, \"statistics\":{\"contacts\":5, \"likes\":5, \"viewCount\": 1.5}}",
+    "statusCode": 400,
+    "expectedMessage": "не передано тело объявлени"
+  },
+  {
+    "requestBody": "{\"name\":\"Лопата\", \"price\":5000, \"sellerId\":999994, \"statistics\":{\"contacts\":5, \"likes\":5, \"viewCount\": \"два\"}}",
+    "statusCode": 400,
+    "expectedMessage": "не передано тело объявлени"
+  },
+  {
+    "requestBody": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<ad>\n    <name>Лего цветы</name>\n    <price>19999999</price>\n    <sellerId>999994</sellerId>\n    <statistics>\n        <contacts>1</contacts>\n        <like>1</like>\n        <viewCount>1</viewCount>\n    </statistics>\n</ad>",
+    "statusCode": 400,
+    "expectedMessage": "не передан объект - объявление"
+  }
+
+]
